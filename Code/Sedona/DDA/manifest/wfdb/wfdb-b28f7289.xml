@@ -1,0 +1,95 @@
+<?xml version='1.0'?>
+<kitManifest
+   name="wfdb"
+   checksum="b28f7289"
+   hasNatives="false"
+   doc="false"
+   version="1.2.28"
+   vendor="Tridium"
+   description="Merge sample Wfdb data and send them via tcp"
+   buildHost="rabee-VirtualBox"
+   buildTime="2015-04-15T11:14:18.559+04:30"
+>
+
+<!-- Dependencies -->
+<depends>
+  <depend on="sys 1.2+"/>
+  <depend on="sox 1.2+"/>
+  <depend on="inet 1.2+"/>
+  <depend on="web 1.2+"/>
+  <depend on="func 1.2+"/>
+  <depend on="platWin32 1.2+"/>
+  <depend on="getData 1.2+"/>
+</depends>
+
+<!-- wfdb::Merge -->
+<type id="0" name="Merge" sizeof="72" base="sys::Component">
+  <facets>
+    <str name="svmID" val="01"/>
+  </facets>
+  <slot id="0" name="in1" type="int">
+    <facets>
+      <int name="min" val="-3000"/>
+      <str name="unit" val="mV"/>
+      <str name="label" val="ECG lead I"/>
+      <int name="max" val="0"/>
+    </facets>
+  </slot>
+  <slot id="1" name="in2" type="int">
+    <facets>
+      <int name="min" val="-3000"/>
+      <str name="unit" val="mV"/>
+      <str name="label" val="ECG lead II"/>
+      <int name="max" val="0"/>
+    </facets>
+  </slot>
+  <slot id="2" name="in3" type="int">
+    <facets>
+      <int name="min" val="-3000"/>
+      <str name="unit" val="mV"/>
+      <str name="label" val="ECG lead V"/>
+      <int name="max" val="0"/>
+    </facets>
+  </slot>
+  <slot id="3" name="in4" type="int">
+    <facets>
+      <int name="min" val="-2000"/>
+      <str name="unit" val="mmHg"/>
+      <str name="label" val="ART"/>
+      <int name="max" val="0"/>
+    </facets>
+  </slot>
+  <slot id="4" name="in5" type="int">
+    <facets>
+      <int name="min" val="0"/>
+      <str name="unit" val="mmHg"/>
+      <str name="label" val="PAP"/>
+      <int name="max" val="2000"/>
+    </facets>
+  </slot>
+  <slot id="5" name="in6" type="int">
+    <facets>
+      <int name="min" val="-2000"/>
+      <str name="unit" val="mmHg"/>
+      <str name="label" val="CVP"/>
+      <int name="max" val="0"/>
+    </facets>
+  </slot>
+  <slot id="6" name="in7" type="int">
+    <facets>
+      <int name="min" val="-1000"/>
+      <str name="unit" val="pm"/>
+      <str name="label" val="Resp. Imp"/>
+      <int name="max" val="0"/>
+    </facets>
+  </slot>
+  <slot id="7" name="in8" type="int">
+    <facets>
+      <int name="min" val="-1000"/>
+      <str name="label" val="CO2"/>
+      <int name="max" val="0"/>
+    </facets>
+  </slot>
+</type>
+
+</kitManifest>

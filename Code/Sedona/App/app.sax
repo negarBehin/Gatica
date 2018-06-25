@@ -1,0 +1,37 @@
+<sedonaApp>
+<schema>
+  <kit name='sys'/>
+  <kit name='sox'/>
+  <kit name='inet'/>
+  <kit name='web'/>
+  <kit name='func'/>
+  <kit name='platWin32'/>
+  <kit name='wfdb'/>
+  <kit name='getData'/>
+
+</schema>
+<app>
+  <comp name="plat" type="platWin32::Win32PlatformService"/>
+  <comp name="users" type="sys::UserService">
+    <comp name="admin" type="sys::User">
+      <prop name="cred" val="hE49ksThgAeLkWB3NUU1NWeDO54="/>
+      <prop name="perm" val="2147483647"/>
+      <prop name="prov" val="255"/>
+    </comp>
+  </comp>
+  <comp name="sox" type="sox::SoxService"/>
+  <comp name="Inp" type="getData::Inp" id="10"/>
+  <comp name="Merge"   type="wfdb::Merge" id="12"/>
+</app>
+<links>
+  <link from="/Inp.out1" to="/Merge.in1"/>
+  <link from="/Inp.out2" to="/Merge.in2"/>
+  <link from="/Inp.out3" to="/Merge.in3"/>
+  <link from="/Inp.out4" to="/Merge.in4"/>
+  <link from="/Inp.out5" to="/Merge.in5"/>
+  <link from="/Inp.out6" to="/Merge.in6"/>
+  <link from="/Inp.out7" to="/Merge.in7"/>
+  <link from="/Inp.out8" to="/Merge.in8"/>
+
+</links>
+</sedonaApp>

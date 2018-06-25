@@ -1,0 +1,430 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY ssn "http://purl.oclc.org/NET/ssnx/ssn#" >
+    <!ENTITY sensor "http://www.gatica.org/ontologies/sensor:" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY patient "http://www.gatica.org/ontologies/patient:" >
+    <!ENTITY DUL "http://www.loa-cnr.it/ontologies/DUL.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.gatica.org/ontologies/ontology#"
+     xml:base="http://www.gatica.org/ontologies/ontology"
+     xmlns:sensor="http://www.gatica.org/ontologies/sensor:"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:patient="http://www.gatica.org/ontologies/patient:"
+     xmlns:DUL="http://www.loa-cnr.it/ontologies/DUL.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:ssn="http://purl.oclc.org/NET/ssnx/ssn#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.gatica.org/ontologies/ontology">
+        <owl:versionIRI rdf:resource="http://www.gatica.org/ontologies/ontology"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#deployedOnPlatform -->
+
+    <owl:ObjectProperty rdf:about="&ssn;deployedOnPlatform"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#hasDeployment -->
+
+    <owl:ObjectProperty rdf:about="&ssn;hasDeployment"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#hasProperty -->
+
+    <owl:ObjectProperty rdf:about="&ssn;hasProperty"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#hasSubSystem -->
+
+    <owl:ObjectProperty rdf:about="&ssn;hasSubSystem"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#observedBy -->
+
+    <owl:ObjectProperty rdf:about="&ssn;observedBy"/>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:hospitalized -->
+
+    <owl:ObjectProperty rdf:about="&patient;hospitalized">
+        <rdfs:range rdf:resource="&patient;Hospitalization"/>
+        <rdfs:domain rdf:resource="&patient;Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="&DUL;hasLocation"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#isClassifiedBy -->
+
+    <owl:ObjectProperty rdf:about="&DUL;isClassifiedBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:date -->
+
+    <owl:DatatypeProperty rdf:about="&patient;date">
+        <rdfs:domain rdf:resource="&patient;Hospitalization"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:diagnoses -->
+
+    <owl:DatatypeProperty rdf:about="&patient;diagnoses">
+        <rdfs:domain rdf:resource="&patient;Hospitalization"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:hasBirthday -->
+
+    <owl:DatatypeProperty rdf:about="&patient;hasBirthday">
+        <rdfs:domain rdf:resource="&patient;Person"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:hasHistory -->
+
+    <owl:DatatypeProperty rdf:about="&patient;hasHistory">
+        <rdfs:domain rdf:resource="&patient;Patient"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:hasId -->
+
+    <owl:DatatypeProperty rdf:about="&patient;hasId">
+        <rdfs:domain rdf:resource="&patient;Patient"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:hasName -->
+
+    <owl:DatatypeProperty rdf:about="&patient;hasName">
+        <rdfs:domain rdf:resource="&patient;Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:hasSex -->
+
+    <owl:DatatypeProperty rdf:about="&patient;hasSex">
+        <rdfs:domain rdf:resource="&patient;Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:hospitalizationId -->
+
+    <owl:DatatypeProperty rdf:about="&patient;hospitalizationId">
+        <rdfs:domain rdf:resource="&patient;Hospitalization"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:isAlive -->
+
+    <owl:DatatypeProperty rdf:about="&patient;isAlive">
+        <rdfs:domain rdf:resource="&patient;Person"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/sensor:hasObservationResultValue -->
+
+    <owl:DatatypeProperty rdf:about="&sensor;hasObservationResultValue">
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/sensor:observationResultTime -->
+
+    <owl:DatatypeProperty rdf:about="&sensor;observationResultTime">
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#hasDataValue -->
+
+    <owl:DatatypeProperty rdf:about="&DUL;hasDataValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#Deployment -->
+
+    <owl:Class rdf:about="&ssn;Deployment"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#Observation -->
+
+    <owl:Class rdf:about="&ssn;Observation"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#Platform -->
+
+    <owl:Class rdf:about="&ssn;Platform"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#Property -->
+
+    <owl:Class rdf:about="&ssn;Property"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#SensingDevice -->
+
+    <owl:Class rdf:about="&ssn;SensingDevice"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#System -->
+
+    <owl:Class rdf:about="&ssn;System"/>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:Hospitalization -->
+
+    <owl:Class rdf:about="&patient;Hospitalization"/>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:Patient -->
+
+    <owl:Class rdf:about="&patient;Patient">
+        <rdfs:subClassOf rdf:resource="&patient;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/patient:Person -->
+
+    <owl:Class rdf:about="&patient;Person"/>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/sensor:Max -->
+
+    <owl:Class rdf:about="&sensor;Max">
+        <rdfs:subClassOf rdf:resource="&ssn;Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/sensor:Min -->
+
+    <owl:Class rdf:about="&sensor;Min">
+        <rdfs:subClassOf rdf:resource="&ssn;Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/sensor:Room -->
+
+    <owl:Class rdf:about="&sensor;Room">
+        <rdfs:subClassOf rdf:resource="&DUL;PhysicalPlace"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/sensor:SVM -->
+
+    <owl:Class rdf:about="&sensor;SVM">
+        <rdfs:subClassOf rdf:resource="&ssn;System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/sensor:Sedona-enabled_Device -->
+
+    <owl:Class rdf:about="&sensor;Sedona-enabled_Device">
+        <rdfs:subClassOf rdf:resource="&ssn;Platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/sensor:Slot -->
+
+    <owl:Class rdf:about="&sensor;Slot">
+        <rdfs:subClassOf rdf:resource="&ssn;SensingDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalPlace -->
+
+    <owl:Class rdf:about="&DUL;PhysicalPlace"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#UnitOfMeasure -->
+
+    <owl:Class rdf:about="&DUL;UnitOfMeasure"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gatica.org/ontologies/ontology:Hosp-1236549001 -->
+
+    <owl:NamedIndividual rdf:about="http://www.gatica.org/ontologies/ontology:Hosp-1236549001">
+        <rdf:type rdf:resource="&patient;Hospitalization"/>
+        <patient:hospitalizationId>Dep01</patient:hospitalizationId>
+        <patient:diagnoses>Carotid endartarectomy</patient:diagnoses>
+        <patient:date>2001-10-26T21:32:52.12679</patient:date>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/ontology:ICU-Room-No-ABC01 -->
+
+    <owl:NamedIndividual rdf:about="http://www.gatica.org/ontologies/ontology:ICU-Room-No-ABC01">
+        <rdf:type rdf:resource="&sensor;Room"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/ontology:John_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.gatica.org/ontologies/ontology:John_B">
+        <rdf:type rdf:resource="&patient;Person"/>
+        <patient:hasHistory>Congenital complete heart block</patient:hasHistory>
+        <patient:hasName>John B</patient:hasName>
+        <patient:isAlive>True</patient:isAlive>
+        <patient:hasSex>Male</patient:hasSex>
+        <patient:hasId>HL7-70014560</patient:hasId>
+        <patient:hasBirthday>1961-10-26T21:32:52.12679</patient:hasBirthday>
+        <patient:hospitalized rdf:resource="http://www.gatica.org/ontologies/ontology:Hosp-1236549001"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.gatica.org/ontologies/ontology:RaspberryPi-01-Sedona1.2-ID01 -->
+
+    <owl:NamedIndividual rdf:about="http://www.gatica.org/ontologies/ontology:RaspberryPi-01-Sedona1.2-ID01">
+        <rdf:type rdf:resource="&sensor;Sedona-enabled_Device"/>
+        <DUL:hasLocation rdf:resource="http://www.gatica.org/ontologies/ontology:ICU-Room-No-ABC01"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/ontology:Room-ABC01-Bed-A-Deploy01 -->
+
+    <owl:NamedIndividual rdf:about="http://www.gatica.org/ontologies/ontology:Room-ABC01-Bed-A-Deploy01">
+        <rdf:type rdf:resource="&ssn;Deployment"/>
+        <patient:hasId>Dep01</patient:hasId>
+        <ssn:deployedOnPlatform rdf:resource="http://www.gatica.org/ontologies/ontology:RaspberryPi-01-Sedona1.2-ID01"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/ontology:SVM-01 -->
+
+    <owl:NamedIndividual rdf:about="http://www.gatica.org/ontologies/ontology:SVM-01">
+        <rdf:type rdf:resource="&sensor;SVM"/>
+        <patient:hasId>01</patient:hasId>
+        <ssn:hasDeployment rdf:resource="http://www.gatica.org/ontologies/ontology:Room-ABC01-Bed-A-Deploy01"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/ontology:Susan_S -->
+
+    <owl:NamedIndividual rdf:about="http://www.gatica.org/ontologies/ontology:Susan_S">
+        <rdf:type rdf:resource="&patient;Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.gatica.org/ontologies/ontology:mV -->
+
+    <owl:NamedIndividual rdf:about="http://www.gatica.org/ontologies/ontology:mV">
+        <rdf:type rdf:resource="&DUL;UnitOfMeasure"/>
+    </owl:NamedIndividual>
+    
+
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

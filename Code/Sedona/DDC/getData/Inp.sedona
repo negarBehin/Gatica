@@ -1,0 +1,62 @@
+// Getting the input data from Inp1 through TcpIp Connection
+
+
+public class Inp extends Component
+{
+	property int out1
+	property int out2
+	property int out3
+	property int out4
+	property int out5
+	property int out6
+	property int out7
+	property int out8
+
+	static inline byte[47] in
+	static inline TcpServerSocket server
+	static inline TcpSocket s
+	static inline byte[5] dest; 
+ 
+	override void start() {
+		assert(server.isClosed())
+		if (server.bind(10000)) {
+			bool sConnected = false
+			while (!sConnected)
+			{
+			  if (!sConnected) sConnected = server.accept(s)
+			  Sys.sleep(1000000000L)
+			}
+		}
+	}
+	override void execute() {
+
+		assert(!server.isClosed())
+		int num = s.read(in, 0, 47);
+		if ( (num!= -1) && (num!= 0) )
+		{
+			
+			Sys.copy(in, 0, dest, 0, 5)
+			out1 := sys::Str.fromBytes(dest, 0).trim().parseInt()
+			Sys.copy(in, 6, dest, 0, 5)
+			out2 := sys::Str.fromBytes(dest, 0).trim().parseInt()
+			Sys.copy(in, 12, dest, 0, 5)
+			out3 := sys::Str.fromBytes(dest, 0).trim().parseInt()
+			Sys.copy(in, 18, dest, 0, 5)
+			out4 := sys::Str.fromBytes(dest, 0).trim().parseInt()
+			Sys.copy(in, 24, dest, 0, 5)
+			out5 := sys::Str.fromBytes(dest, 0).trim().parseInt()
+			Sys.copy(in, 30, dest, 0, 5)
+			out6 := sys::Str.fromBytes(dest, 0).trim().parseInt()
+			Sys.copy(in, 36, dest, 0, 5)
+			out7 := sys::Str.fromBytes(dest, 0).trim().parseInt()
+			Sys.copy(in, 42, dest, 0, 5)
+			out8 := sys::Str.fromBytes(dest, 0).trim().parseInt()
+
+
+			Sys.setBytes(0, in, 0, 47)
+			num = s.read(in, 0, 47)
+		}
+	}
+
+}
+

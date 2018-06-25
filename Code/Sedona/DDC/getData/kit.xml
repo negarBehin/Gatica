@@ -1,0 +1,10 @@
+<sedonaKit name="getData" vendor="Tridium" description="blah">
+  <depend on="sys 1.2+" />
+  <depend on="sox 1.2+" />
+  <depend on="inet 1.2+" />
+  <depend on="web 1.2+" />
+  <depend on="func 1.2+" />
+  <depend on="platWin32 1.2+" />
+
+  <source dir="." />
+</sedonaKit>

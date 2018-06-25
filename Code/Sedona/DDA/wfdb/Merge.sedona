@@ -1,0 +1,220 @@
+// Merge the input data
+@svmID = "01"
+public class Merge extends Component
+{
+
+	@min=-3000 @max=0 @label="ECG lead I" @unit="mV"
+	property int in1
+	
+	@min=-3000 @max=0 @label="ECG lead II" @unit="mV"
+	property int in2
+
+	@min=-3000 @max=0 @label="ECG lead V" @unit="mV"
+	property int in3
+
+	@min=-2000 @max=0 @label="ART" @unit="mmHg"
+	property int in4
+
+	@min=0 @max=2000 @label="PAP" @unit="mmHg"
+	property int in5
+
+	@min=-2000 @max=0 @label="CVP" @unit="mmHg"
+	property int in6
+
+	@min=-1000 @max=0 @label="Resp. Imp" @unit="pm"
+	property int in7
+
+	@min=-1000 @max=0 @label="CO2"
+	property int in8
+
+	static inline TcpSocket c
+	static inline IpAddr addr
+	static inline byte[256] dest
+	Str svmID
+
+	override void start() {
+
+	addr.parse("127.0.0.1")
+	
+	// Here we can get svm id from a server
+	svmID = "01"
+	}
+
+	override void execute() {
+
+		c.connect(addr, 20000)
+		Sys.sleep(1000000000L)
+
+		Str slotID
+		Str timestamp
+		int i=0;
+
+		// slot 0
+		slotID = "0"
+		timestamp	= Sys.longStr(Sys.ticks())
+		Sys.copy(svmID.toBytes(), 0, dest, i, svmID.length())
+		i = i + svmID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)
+		i = i + 1
+		Sys.copy(slotID.toBytes(), 0, dest, i, slotID.length())
+		i = i + slotID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(timestamp.toBytes(), 0, dest, i, timestamp.length())
+		i = i + timestamp.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(Sys.intStr(in1).toBytes(), 0, dest, i, Sys.intStr(in1).length())
+		i = i + Sys.intStr(in1).length()
+		Sys.copy(";".toBytes(), 0, dest, i, 1)
+		i = i + 1
+
+		// slot 1
+		slotID = "1"
+		timestamp	= Sys.longStr(Sys.ticks())
+		Sys.copy(svmID.toBytes(), 0, dest, i, svmID.length())
+		i = i + svmID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)
+		i = i + 1
+		Sys.copy(slotID.toBytes(), 0, dest, i, slotID.length())
+		i = i + slotID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(timestamp.toBytes(), 0, dest, i, timestamp.length())
+		i = i + timestamp.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(Sys.intStr(in2).toBytes(), 0, dest, i, Sys.intStr(in2).length())
+		i = i + Sys.intStr(in2).length()
+		Sys.copy(";".toBytes(), 0, dest, i, 1)
+		i = i + 1
+
+		// slot 2
+		slotID = "2"
+		timestamp	= Sys.longStr(Sys.ticks())
+		Sys.copy(svmID.toBytes(), 0, dest, i, svmID.length())
+		i = i + svmID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)
+		i = i + 1
+		Sys.copy(slotID.toBytes(), 0, dest, i, slotID.length())
+		i = i + slotID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(timestamp.toBytes(), 0, dest, i, timestamp.length())
+		i = i + timestamp.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(Sys.intStr(in3).toBytes(), 0, dest, i, Sys.intStr(in3).length())
+		i = i + Sys.intStr(in3).length()
+		Sys.copy(";".toBytes(), 0, dest, i, 1)
+		i = i + 1
+
+		// slot 3
+		slotID = "3"
+		timestamp	= Sys.longStr(Sys.ticks())
+		Sys.copy(svmID.toBytes(), 0, dest, i, svmID.length())
+		i = i + svmID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)
+		i = i + 1
+		Sys.copy(slotID.toBytes(), 0, dest, i, slotID.length())
+		i = i + slotID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(timestamp.toBytes(), 0, dest, i, timestamp.length())
+		i = i + timestamp.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(Sys.intStr(in4).toBytes(), 0, dest, i, Sys.intStr(in4).length())
+		i = i + Sys.intStr(in4).length()
+		Sys.copy(";".toBytes(), 0, dest, i, 1)
+		i = i + 1
+
+		// slot 4
+		slotID = "4"
+		timestamp	= Sys.longStr(Sys.ticks())
+		Sys.copy(svmID.toBytes(), 0, dest, i, svmID.length())
+		i = i + svmID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)
+		i = i + 1
+		Sys.copy(slotID.toBytes(), 0, dest, i, slotID.length())
+		i = i + slotID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(timestamp.toBytes(), 0, dest, i, timestamp.length())
+		i = i + timestamp.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(Sys.intStr(in5).toBytes(), 0, dest, i, Sys.intStr(in5).length())
+		i = i + Sys.intStr(in5).length()
+		Sys.copy(";".toBytes(), 0, dest, i, 1)
+		i = i + 1
+
+		// slot 5
+		slotID = "5"
+		timestamp	= Sys.longStr(Sys.ticks())
+		Sys.copy(svmID.toBytes(), 0, dest, i, svmID.length())
+		i = i + svmID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)
+		i = i + 1
+		Sys.copy(slotID.toBytes(), 0, dest, i, slotID.length())
+		i = i + slotID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(timestamp.toBytes(), 0, dest, i, timestamp.length())
+		i = i + timestamp.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(Sys.intStr(in6).toBytes(), 0, dest, i, Sys.intStr(in6).length())
+		i = i + Sys.intStr(in6).length()
+		Sys.copy(";".toBytes(), 0, dest, i, 1)
+		i = i + 1
+
+		// slot 6
+		slotID = "6"
+		timestamp	= Sys.longStr(Sys.ticks())
+		Sys.copy(svmID.toBytes(), 0, dest, i, svmID.length())
+		i = i + svmID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)
+		i = i + 1
+		Sys.copy(slotID.toBytes(), 0, dest, i, slotID.length())
+		i = i + slotID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(timestamp.toBytes(), 0, dest, i, timestamp.length())
+		i = i + timestamp.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(Sys.intStr(in7).toBytes(), 0, dest, i, Sys.intStr(in7).length())
+		i = i + Sys.intStr(in7).length()
+		Sys.copy(";".toBytes(), 0, dest, i, 1)
+		i = i + 1
+
+		// slot 7
+		slotID = "7"
+		timestamp	= Sys.longStr(Sys.ticks())
+		Sys.copy(svmID.toBytes(), 0, dest, i, svmID.length())
+		i = i + svmID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)
+		i = i + 1
+		Sys.copy(slotID.toBytes(), 0, dest, i, slotID.length())
+		i = i + slotID.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(timestamp.toBytes(), 0, dest, i, timestamp.length())
+		i = i + timestamp.length()
+		Sys.copy(",".toBytes(), 0, dest, i, 1)		
+		i = i + 1
+		Sys.copy(Sys.intStr(in8).toBytes(), 0, dest, i, Sys.intStr(in8).length())
+		i = i + Sys.intStr(in8).length()
+		Sys.copy(";".toBytes(), 0, dest, i, 1)	
+
+		Sys.out.print(sys::Str.fromBytes(dest,0))
+		Sys.out.print("\n")
+
+		
+		c.write(dest, 0, sys::Str.fromBytes(dest,0).length())
+		Sys.setBytes(0, dest, 0, 256)
+		c.close()
+
+	}
+}
